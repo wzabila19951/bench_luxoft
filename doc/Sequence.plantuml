@@ -1,0 +1,23 @@
+@startuml
+scale max 1024*768
+
+loop
+    LifeCycle -> GameState : MakeTurn()
+    LifeCycle -> Map: isCellActive()
+    Map --> LifeCycle : true / false 
+    LifeCycle -> Map: TakeShot()
+loop ships.size()
+    Map -> Ship: CheckHit()
+    Ship --> Map: true / false
+end
+    Map --> LifeCycle : true / false 
+    Map -> Map : DeactiveCells()
+    LifeCycle -> Drawer : ClearView()
+    LifeCycle -> Drawer : DrawMap() 
+    LifeCycle -> GameState: Next() 
+end
+
+
+
+
+@enduml

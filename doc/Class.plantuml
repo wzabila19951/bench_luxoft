@@ -1,0 +1,80 @@
+@startuml
+scale max 1024*768
+
+class LifeCycle{ 
+
+}
+
+abstract Ship{
+    - vector<cordinate> shipCells
+    + {abstract} void DeactivateCellsAround() = 0
+    + {abstract} bool CheckHit() = 0
+}
+
+class Map{
+   -vactor<cordinate> Cell
+  - vector<Ship> ships
+  - void AddShip(ShipType)
+  + bool IsCellActive(Cordinate)
+  + void DeactiveteCells(Cordinate) 
+  + bool TakeShot(Cordinate)
+}
+class Sloop{
+
+}
+class Corvete{
+
+}
+class Frigate{
+
+}
+class Linkor{
+
+}
+class Drawer{
+  + static void DrowMap(Map) 
+  + void ClearView()
+  + void DrowText(string)
+  + void DrowStatistic()
+}
+class AI{
+ + Cordinate GetShotPoint()
+}
+class AITurn{
+
+}
+class PlayerTurn{
+
+}
+class Pause{
+
+}
+class GameState{
+    + {abstract} void Next() = 0
+    + {abstract} Cordinate MakeTurn() = 0
+    
+    
+
+}
+
+
+
+
+
+LifeCycle *-- Map
+Map *-- Ship 
+Ship <|-- Sloop
+Ship <|-- Corvete   
+Ship <|-- Frigate
+Ship <|-- Linkor
+LifeCycle *-- Drawer
+AITurn *-- AI 
+LifeCycle *-- GameState 
+GameState <|-- PlayerTurn
+GameState <|-- AITurn 
+GameState <|-- Pause 
+
+
+
+
+@enduml
