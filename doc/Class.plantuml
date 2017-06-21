@@ -2,7 +2,8 @@
 scale max 1024*768
 
 class LifeCycle{ 
-
+    +void play()
+    -GameState* game
 }
 
 abstract Ship{

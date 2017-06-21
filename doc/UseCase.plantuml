@@ -2,13 +2,8 @@
 scale max 1024*768
 
 actor Player
-actor Computer
 
 Player -- (Shot)
 Player -- (Pause)
-
-
-Computer -- (Shot) 
-
 
 @enduml
