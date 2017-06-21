@@ -1,0 +1,7 @@
+@startuml
+scale max 1024*768
+
+    LifeCycle -> GameState : pause()
+    GameState --> LifeCycle : pauseTime; 
+   
+@enduml

@@ -7,6 +7,7 @@ class LifeCycle{
 }
 
 abstract Ship{
+    +enum class ShipType 
     - vector<cordinate> shipCells
     + {abstract} void DeactivateCellsAround() = 0
     + {abstract} bool CheckHit() = 0

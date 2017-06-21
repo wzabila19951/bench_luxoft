@@ -5,5 +5,6 @@ actor Player
 
 Player -- (Shot)
 Player -- (Pause)
+Player -- (Show statistics)
 
 @enduml

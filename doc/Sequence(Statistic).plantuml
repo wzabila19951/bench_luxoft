@@ -1,0 +1,8 @@
+@startuml
+scale max 1024*768
+
+     LifeCycle -> Drawer : DrowStatistic()
+     Drawer --> LifeCycle: string Stistic 
+
+
+@enduml
