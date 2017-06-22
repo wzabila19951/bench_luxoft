@@ -2,10 +2,8 @@
 #define DRAWER_H
 
 #include <string>
-//#include <windns.h>
 #include <iostream>
 #include <vector>
-#include <cordinate.h>
 
 #include "map.h"
 
@@ -13,10 +11,11 @@ class Drawer
 {
 public:
     Drawer();
-    static void DrowMap(Map &map);
-    void ClearView();
-    void DrowText(std::string text);
-    void DrowStatistic();
+    void DrowMap(Map &map);
+    void ClearView() const ;
+    void DrawText(const std::string& text) const ;
+    void DrawStatistic() const;
+    char horizontalNav[10] = {'A','B','C','D','E','F','G','H','I','J'};
 };
 
 #endif // DRAWER_H

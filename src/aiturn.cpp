@@ -1,9 +1,9 @@
 #include "aiturn.h"
 #include "playerturn.h"
 
-AITurn::AITurn()
+char AITurn::getId() const
 {
-
+    return 'c';
 }
 
 void AITurn::Next(GameState* out_state)

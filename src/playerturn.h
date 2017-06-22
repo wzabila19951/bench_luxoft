@@ -8,10 +8,12 @@
 class PlayerTurn : public GameState
 {
 public:
-    char name = 'p';
-    PlayerTurn();
+    virtual ~PlayerTurn(){}
     Cordinate MakeTurn() override;
     void Next(GameState* out_state) override;
+    char getId() const override;
+private:
+    char id;
 };
 
 #endif // PLAYERTURN_H

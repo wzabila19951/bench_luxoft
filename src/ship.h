@@ -16,8 +16,8 @@ public:
     };
 
     Ship(const std::vector<Cordinate*>& cells);
-    virtual void DeactivateCellsAround() = 0;
-    virtual bool CheckHit(const Cordinate& cell) = 0;
+    virtual void DeactivateCellsAround()  = 0 ;
+    virtual bool CheckHit(const Cordinate& cell) const;
 protected:
     std::vector<Cordinate*> shipCells;
 };

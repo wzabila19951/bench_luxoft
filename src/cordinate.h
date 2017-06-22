@@ -4,9 +4,15 @@
 
 struct Cordinate
 {
+    Cordinate(const char ch, const int i, const bool is_ship_exist)
+        : horizontal(ch)
+        , vertical(i)
+        , state((is_ship_exist) ? State::Ship : State::Active) {}
+
     Cordinate(const bool is_ship_exist) {
         state = (is_ship_exist) ? State::Ship : State::Active;
     }
+
     enum class State {
         Active = 0,
         Ship,

@@ -6,10 +6,10 @@
 class GameState
 {
 public:
-    GameState();
-    char name;
-    virtual void Next(GameState* out_state) = 0;
+    virtual ~GameState() {}
     virtual Cordinate MakeTurn() = 0;
+    virtual void Next(GameState* out_state) = 0;
+    virtual char getId() const = 0;
 };
 
 #endif // GAMESTATE_H

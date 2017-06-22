@@ -6,9 +6,10 @@
 class Sloop: public Ship
 {
 public:
-    Sloop(const std::vector<Cordinate*> &cells);
-    bool CheckHit(const Cordinate& cell) override;
-    void DeactivateCellsAround();
+    Sloop(const std::vector<Cordinate*>& cells);
+    void DeactivateCellsAround() override;
+protected:
+    std::vector<Cordinate*> shipCells;
 };
 
 #endif // SLOOP_H

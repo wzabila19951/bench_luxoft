@@ -3,13 +3,13 @@
 
 #include "ship.h"
 
-
 class Corvete : public Ship
 {
 public:
-    Corvete(const std::vector<Cordinate*> &cells);
-    bool CheckHit(const Cordinate& cell) override;
+    Corvete(const std::vector<Cordinate *> &cells);
     void DeactivateCellsAround() override;
+protected:
+    std::vector<Cordinate*> shipCells;
 };
 
 #endif // CORVETE_H

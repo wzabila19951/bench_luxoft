@@ -13,6 +13,8 @@ public:
     LifeCycle();
     ~LifeCycle();
     void play();
+    int countAI;
+    int countPlayer;
 
 private:
     void pause();

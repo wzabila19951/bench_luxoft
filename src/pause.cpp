@@ -1,20 +1,34 @@
+#include <ctime>
 #include "pause.h"
 #include "playerturn.h"
+
 
 Pause::Pause(const Drawer& in_drawer) : drawer(in_drawer)
 {
 
 }
 
-void Pause::MakeTurn()
+Pause::~Pause()
 {
+
+}
+
+char Pause::getId() const
+{
+    return 's';
+}
+
+Cordinate Pause::MakeTurn()
+{
+    const clock_t start = clock();
+    Cordinate a(false);
     drawer.ClearView();
-    drawer.DrowStatistic();
-
-    /*
-    read press of whitespace
-    */
-
+    drawer.DrawText("Pause");
+    drawer.DrawStatistic();
+    scanf(" %c", &a);
+    const float duration = static_cast<float>(clock() - start) / 100;
+    std::cout<< duration << std::endl;
+ return a;
 }
 
 void Pause::Next(GameState* out_state)

@@ -9,9 +9,11 @@ class Pause : public GameState
 {
 public:
     Pause(const Drawer& in_drawer);
-    void MakeTurn() override;
+    virtual ~Pause();
+    Cordinate MakeTurn() override;
+    char getId() const;
     void Next(GameState* out_state) override;
-
+    char a;
 private:
     const Drawer& drawer;
 };

@@ -7,10 +7,10 @@
 class AITurn : public GameState
 {
 public:
-    AITurn();
-    char name = 'c';
-    void Next(GameState* out_state);
-    Cordinate MakeTurn();
+    virtual ~AITurn() {}
+    char getId() const override;
+    void Next(GameState* out_state) override;
+    Cordinate MakeTurn() override;
 };
 
 #endif // AITURN_H

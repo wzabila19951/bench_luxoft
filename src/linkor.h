@@ -7,9 +7,10 @@
 class Linkor : public Ship
 {
 public:
-    Linkor(const std::vector<Cordinate*> &cells);
-    bool CheckHit(const Cordinate& cell) override;
-    void DeactivateCellsAround();
+    Linkor(const std::vector<Cordinate*>& cells);
+    void DeactivateCellsAround() override;
+protected:
+    std::vector<Cordinate*> shipCells;
 };
 
 #endif // LINKOR_H

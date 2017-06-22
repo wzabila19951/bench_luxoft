@@ -1,8 +1,6 @@
 #ifndef AI_H
 #define AI_H
 
-#include <cstdlib>
-
 #include "cordinate.h"
 
 class AI

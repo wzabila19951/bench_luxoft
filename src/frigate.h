@@ -6,9 +6,10 @@
 class Frigate : public Ship
 {
 public:
-    Frigate(const std::vector<Cordinate&>& cells);
-    bool CheckHit(const Cordinate& cell) override;
-    void DeactivateCellsAround();
+    Frigate(const std::vector<Cordinate *> &cells);
+    void DeactivateCellsAround() override;
+protected:
+    std::vector<Cordinate*> shipCells;
 };
 
 #endif // FRIGATE_H
