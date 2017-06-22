@@ -4,6 +4,8 @@
 
 #include "cordinate.h"
 
+const int map_size = 10;
+
 char GetStateSymbol(Cordinate::State state) {
     switch (state) {
     case Cordinate::State::Active: return ' ';
@@ -38,28 +40,28 @@ Drawer::Drawer()
 
 class FindPredicate {
 public :
-    FindPredicate(char ch, int i) : ch_(ch), i_(i) {
+    FindPredicate(const char horyzontal, const int vertical) : horyzontal_(horyzontal), vetical_(vertical) {
     }
-    bool operator ()(Cordinate& cord) {
-        return cord.horizontal == ch_ && cord.vertical == i_;
+    bool operator ()(const Cordinate& cord) {
+        return cord.horizontal == horyzontal_ && cord.vertical == vetical_;
     }
 private:
-    const char ch_;
-    const int i_;
+    const char horyzontal_;
+    const int vetical_;
 };
 
-void Drawer::DrowMap(Map& map)
+void Drawer::DrawMap(const Map &map)
 {
-    for(int i = 0; i < 10 ; i++){
+    for(int i = 0; i < map_size ; i++){
         std::cout << horizontalNav[i] << '|';
     }
     std::cout << std::endl;
 
-    DrawHoryzontalLine('_', 11);
+    DrawHoryzontalLine('_', map_size + 1);
 
-    for (int i = 1; i < 11; ++i) {
-        for (char ch = 'A'; ch <= 'J'; ++ch) {
-            FindPredicate pred(ch, i);
+    for (int vertical = 1; vertical < map_size + 1; ++vertical) {
+        for (char horyzontal = 'A'; horyzontal <= 'J'; ++horyzontal) {
+            FindPredicate pred(horyzontal, vertical);
             Cordinate cord = *(std::find_if(map.cells.begin(), map.cells.end(), pred));
             if(!map.mapSwitch){
                 std::cout << '|' << GetStateSymbol(cord.state);
@@ -70,7 +72,7 @@ void Drawer::DrowMap(Map& map)
         std::cout << '|' <<  std::endl;
     }
 
-    DrawHoryzontalLine('_', 11);
+    DrawHoryzontalLine('_', map_size + 1);
 }
 
 void Drawer::ClearView() const

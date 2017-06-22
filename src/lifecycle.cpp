@@ -11,8 +11,8 @@ LifeCycle::LifeCycle()
 
 LifeCycle::~LifeCycle()
 {
-    game_state = 0;
     delete game_state;
+    game_state = nullptr;
 }
 
 
@@ -30,9 +30,9 @@ void LifeCycle::play()
     do{
         drawer.ClearView();
         drawer.DrawText("Player map");
-        drawer.DrowMap(mapPlayer);
+        drawer.DrawMap(mapPlayer);
         drawer.DrawText("AI map");
-        drawer.DrowMap(mapAI);
+        drawer.DrawMap(mapAI);
         Cordinate entered_cordinate = game_state->MakeTurn();
         if (entered_cordinate == pause_coordiante) {
             pause();

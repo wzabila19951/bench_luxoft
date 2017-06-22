@@ -14,7 +14,7 @@ class Map
 {
 public:
     friend class Drawer;
-    Map(const bool& _mapSwitch);
+    Map(const bool _mapSwitch);
     ~Map();
     bool isCellActive(const Cordinate& cordinate) const ;
     void DeactivatedCell(const Cordinate& cordinate, const Cordinate::State new_state);
@@ -24,10 +24,9 @@ protected:
    const bool mapSwitch;
 private: 
    std::vector<Ship*> ships;
-   Ship* _ship;
    void AddShip(Ship::ShipType ship_type);
 
-   Cordinate *getCell(const char ch, const int i) const;
+   Cordinate *getCell(const char horizontal, const int vertical);
 
    std::vector<std::pair<char, int>> lincore_coords = {{'G',1}, {'H', 1}, {'I', 1}, {'J', 1}};
    std::vector<std::pair<char, int>> frigate_coords = {{'D',3}, {'E', 3}, {'F', 3}, {'J', 3}, {'J', 4}, {'J', 5}};

@@ -13,7 +13,6 @@ public:
     Cordinate MakeTurn() override;
     char getId() const override;
     void Next(GameState* out_state) override;
-    char a;
 private:
     const Drawer& drawer;
 };

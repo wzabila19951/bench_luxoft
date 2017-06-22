@@ -11,7 +11,7 @@ class Drawer
 {
 public:
     Drawer();
-    void DrowMap(Map &map);
+    void DrawMap(const Map &map);
     void ClearView() const ;
     void DrawText(const std::string& text) const ;
     void DrawStatistic() const;

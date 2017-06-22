@@ -4,9 +4,9 @@
 
 struct Cordinate
 {
-    Cordinate(const char ch, const int i, const bool is_ship_exist)
-        : horizontal(ch)
-        , vertical(i)
+    Cordinate(const char position_horyzontal, const int position_vertical, const bool is_ship_exist)
+        : horizontal(position_horyzontal)
+        , vertical(position_vertical)
         , state((is_ship_exist) ? State::Ship : State::Active) {}
 
     Cordinate(const bool is_ship_exist) {
@@ -24,12 +24,12 @@ struct Cordinate
     int vertical;
     State state;
 
-    bool operator==(const Cordinate& other) {
+    bool operator==(const Cordinate& other) const {
         return other.horizontal == horizontal
             && other.vertical == vertical;
     }
 
-    bool IsActive() {
+    bool IsActive() const  {
         return State::Active == state || State::Ship == state;
     }
 };

@@ -3,14 +3,14 @@
 #include <iostream>
 
 
-Map::Map(const bool& _mapSwitch): mapSwitch(_mapSwitch)
+Map::Map(const bool _mapSwitch): mapSwitch(_mapSwitch)
 {
     Cordinate cordinate(false);
     char horizontalNav[10] = {'A','B','C','D','E','F','G','H','I','J'};
-    for(int i = 1 ; i < 11; i++){
-        for(int j = 0; j < 10; j++){
-            cordinate.horizontal = horizontalNav[j];
-            cordinate.vertical = i;
+    for(int vertical = 1 ; vertical < 11; vertical++){
+        for(int horyzontal = 0; horyzontal < 10; horyzontal++){
+            cordinate.horizontal = horizontalNav[horyzontal];
+            cordinate.vertical = vertical;
             cells.push_back(cordinate);
         }
     }
@@ -29,22 +29,16 @@ Map::Map(const bool& _mapSwitch): mapSwitch(_mapSwitch)
 
 Map::~Map () {
     for(auto ship : ships) {
-        ship = 0;
         delete ship;
+        ship = nullptr;
     }
 }
 
 bool Map::isCellActive(const Cordinate& cordinate) const
 {
-    for(Cordinate& cell : cells){
+    for(const Cordinate& cell : cells){
         if(cell == cordinate){
-            if(cell.IsActive()){
-              //  std::cout << "Cell active" << std::endl;
-                return true;
-            } else {
-              //  std::cout << "This point has already been shot." << std::endl;
-                return false;
-            }
+            return cell.IsActive();
         }
     }
     return false;
@@ -70,9 +64,9 @@ bool Map::TakeShot(const Cordinate& cordinate) const
     return false;
 }
 
-Cordinate* Map::getCell (const char ch, const int i) const {
+Cordinate* Map::getCell (const char horizontal, const int vertical) {
     for(Cordinate& cell : cells) {
-        if (cell == Cordinate(ch, i, false)) {
+        if (cell == Cordinate(horizontal, vertical, false)) {
             return &cell;
         }
     }
