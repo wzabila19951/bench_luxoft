@@ -11,7 +11,7 @@ public:
     Pause(const Drawer& in_drawer);
     virtual ~Pause();
     Cordinate MakeTurn() override;
-    char getId() const;
+    char getId() const override;
     void Next(GameState* out_state) override;
     char a;
 private:

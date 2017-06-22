@@ -15,7 +15,7 @@ public:
     void ClearView() const ;
     void DrawText(const std::string& text) const ;
     void DrawStatistic() const;
-    char horizontalNav[10] = {'A','B','C','D','E','F','G','H','I','J'};
+    const char horizontalNav[10] = {'A','B','C','D','E','F','G','H','I','J'};
 };
 
 #endif // DRAWER_H

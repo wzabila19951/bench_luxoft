@@ -16,18 +16,18 @@ public:
     friend class Drawer;
     Map(const bool& _mapSwitch);
     ~Map();
-    bool isCellActive(const Cordinate& cordinate) ;
+    bool isCellActive(const Cordinate& cordinate) const ;
     void DeactivatedCell(const Cordinate& cordinate, const Cordinate::State new_state);
-    bool TakeShot(const Cordinate &cordinate);
+    bool TakeShot(const Cordinate &cordinate) const;
     std::vector<Cordinate> cells;
 protected:
-    bool mapSwitch;
+   const bool mapSwitch;
 private: 
    std::vector<Ship*> ships;
    Ship* _ship;
    void AddShip(Ship::ShipType ship_type);
 
-   Cordinate *getCell(const char ch, const int i);
+   Cordinate *getCell(const char ch, const int i) const;
 
    std::vector<std::pair<char, int>> lincore_coords = {{'G',1}, {'H', 1}, {'I', 1}, {'J', 1}};
    std::vector<std::pair<char, int>> frigate_coords = {{'D',3}, {'E', 3}, {'F', 3}, {'J', 3}, {'J', 4}, {'J', 5}};

@@ -13,16 +13,12 @@ public:
     LifeCycle();
     ~LifeCycle();
     void play();
-    int countAI;
-    int countPlayer;
-
 private:
     void pause();
 
 private:
     GameState* game_state;
     Drawer drawer;
-
 };
 
 #endif // LIFECYCLE_H

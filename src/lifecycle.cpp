@@ -11,6 +11,7 @@ LifeCycle::LifeCycle()
 
 LifeCycle::~LifeCycle()
 {
+    game_state = 0;
     delete game_state;
 }
 

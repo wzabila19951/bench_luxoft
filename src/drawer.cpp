@@ -24,9 +24,9 @@ char _GetStateSymbol(Cordinate::State state) {
     }
 }
 
-void DrawHoryzontalLine(const char ch, const int count) {
+void DrawHoryzontalLine(const char symbol, const int count) {
     for (int i = 0; i < count * 2 - 1; ++i) {
-        std::cout << ch;
+        std::cout << symbol;
     }
     std::cout << std::endl;
 }
@@ -75,7 +75,6 @@ void Drawer::DrowMap(Map& map)
 
 void Drawer::ClearView() const
 {
-   // std::system("cls");
 }
 
 void Drawer::DrawText(const std::string& text) const
@@ -86,11 +85,4 @@ void Drawer::DrawText(const std::string& text) const
 
 void Drawer::DrawStatistic() const
 {
-//    int cout = 0;
-//    for(Cordinate cell: ){
-//        if(cell.state == Cordinate::State::Hited ){
-//            cout++;
-//        }
-//    }
-//    std::cout << "Number of dead ships - " << cout << std::endl;
 }

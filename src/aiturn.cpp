@@ -8,6 +8,7 @@ char AITurn::getId() const
 
 void AITurn::Next(GameState* out_state)
 {
+    out_state = 0;
     delete out_state;
     out_state = new PlayerTurn();
 }

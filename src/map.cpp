@@ -29,11 +29,12 @@ Map::Map(const bool& _mapSwitch): mapSwitch(_mapSwitch)
 
 Map::~Map () {
     for(auto ship : ships) {
+        ship = 0;
         delete ship;
     }
 }
 
-bool Map::isCellActive(const Cordinate& cordinate)
+bool Map::isCellActive(const Cordinate& cordinate) const
 {
     for(Cordinate& cell : cells){
         if(cell == cordinate){
@@ -59,7 +60,7 @@ void Map::DeactivatedCell(const Cordinate& cordinate, const Cordinate::State new
     }
 }
 
-bool Map::TakeShot(const Cordinate& cordinate)
+bool Map::TakeShot(const Cordinate& cordinate) const
 {
     for(Ship* ship : ships) {
         if (ship->CheckHit(cordinate)) {
@@ -69,10 +70,9 @@ bool Map::TakeShot(const Cordinate& cordinate)
     return false;
 }
 
-Cordinate* Map::getCell (const char ch, const int i) {
+Cordinate* Map::getCell (const char ch, const int i) const {
     for(Cordinate& cell : cells) {
         if (cell == Cordinate(ch, i, false)) {
-           // std::cout << "found" << std::endl;
             return &cell;
         }
     }
